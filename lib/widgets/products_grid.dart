@@ -17,10 +17,12 @@ class ProductsGrid extends StatelessWidget {
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
       ),
-      itemBuilder: (context, index) => ProductItem(
-        products[index].id,
-        products[index].title,
-        products[index].imageUrl,
+      itemBuilder: (context, index) => ChangeNotifierProvider.value(
+        /// create method can be used but can cause bugs.
+        /// value is an alternative, check main.dart for create usage.
+        /// approach is must for list and grid items.
+        value: products[index],
+        child: ProductItem(),
       ),
       itemCount: products.length,
     );

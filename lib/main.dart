@@ -14,6 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
+      /// value should not be used here, but it would also work.
+      /// sometimes value can be buggy.
+      /// create is the best practice in non-replicating widgets.
       create: (context) => ProductsProvider(),
       child: MaterialApp(
         title: 'Flutter Demo',
